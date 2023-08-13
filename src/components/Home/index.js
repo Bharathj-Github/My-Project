@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
+import Nav from '../Nav';
 
 export default function index() {
   return (
     <div>
-      homeeeeeee
+      <Nav></Nav>
+      homeeee
     </div>
-  )
+  );
 }
