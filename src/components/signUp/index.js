@@ -59,7 +59,7 @@ export default function Index() {
     ) {
       //if password is also correct post to server
       if (cpassword === password) {
-        Axios.post("http://localhost:4000/users", {
+        Axios.post("https://my-server-node.onrender.com/register", {
           firstName: firstName,
           lastName: lastName,
           userName: userName,
