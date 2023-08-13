@@ -68,7 +68,7 @@ export default function Index() {
           password: password,
         })
           .then(() => console.log("done"))
-          .catch((e) => console.log("some"));
+          .catch((e) => console.log("ERROR IN POST: "+e));
         setError("done" + password);
       } else {
         setError("Password doesn't match");
