@@ -129,9 +129,9 @@ export default function Index() {
               reset
             </Link>
           </div>
-          <div className="bg-black text-white text-sm flex justify-center rounded-full py-2 mt-4 font-medium">
-            <Link to="/">continue with out login</Link>
-          </div>
+          <Link to="/"><div className="bg-black text-white text-sm flex justify-center rounded-full py-2 mt-4 font-medium">
+            continue with out login
+          </div></Link>
         </div>
       </div>
       {/* Login card bottom */}
