@@ -156,9 +156,7 @@ export default function Index() {
     }
     if (event.target.value.length === 10) {
       setPhoneNo(event.target.value);
-    } else {
-      console.log("object");
-    }
+    } 
     setErrPhone(false);
   };
   let passwordHandler = (event) => {
