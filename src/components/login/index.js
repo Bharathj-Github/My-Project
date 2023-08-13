@@ -1,11 +1,11 @@
 import React from "react";
 import { FaInstagramSquare } from "react-icons/fa";
 import { AiFillFacebook, AiFillTwitterSquare } from "react-icons/ai";
-import { BiLogoFirebase } from "react-icons/bi";
 import { useState } from "react";
 import ErrorMessage from "./errorMessage";
 import { Link } from "react-router-dom";
-
+import Logo from "../Logo";
+import girlimg from "../../img/girl.png";
 export default function Index() {
   const space = "flex flex-col";
   const input_tail =
@@ -20,18 +20,33 @@ export default function Index() {
 
   return (
     <div className="h-screen bg-[#fdbe20] flex justify-center max-[1000px]:block max-md:p-3 ">
-      <div>
-        <BiLogoFirebase className="text-9xl flex flex-col max-[400px]:text-7xl" />
+      {/* Logo */}
+      <div className="flex justify-center">
+        <Logo
+          logosize={"text-9xl max-sm:text-9xl"}
+          textsize={"text-xl max-sm:text-xl"}
+        />
       </div>
-      <div className="flex flex-row justify-end min-[768px]:max-[1200px]:flex-col">
-        <img src="img/signup.png" alt="girl" className="flex justify-center" />
+      {/* Logo */}
+      {/* Girl img */}
+      <div className="flex flex-row justify-end max-sm:hidden">
+        <img src={girlimg} alt="girl" />
       </div>
-      <div className=" bg-white flex justify-center px-20 py-10 my-16 rounded-3xl flex-col max-md:px-6">
-        <div className="flex justify-center font-extrabold text-2xl">LOGIN</div>
-        <p className=" text-xs flex justify-center pb-1">
-          HELLO!! Please Login to continue
-        </p>
-        <div className="bg-black p-[0.1rem] rounded-full mb-3"></div>
+      {/* Girl img */}
+      {/* Login card start */}
+      <div className=" bg-white flex justify-center px-20 py-10 my-16 rounded-3xl flex-col max-md:px-6 max-sm:-translate-y-12">
+        {/* Login card top */}
+        <div>
+          <div className="flex justify-center font-extrabold text-2xl">
+            LOGIN
+          </div>
+          <p className=" text-xs flex justify-center pb-1">
+            HELLO!! Please Login to continue
+          </p>
+          <div className="bg-black p-[0.1rem] rounded-full mb-3"></div>
+        </div>
+        {/* Login card top */}
+        {/* Form Start */}
         <form className=" font-bold flex flex-col gap-3">
           <div className={space}>
             <div
@@ -79,30 +94,48 @@ export default function Index() {
               <ErrorMessage errorMessage="must provide the firstName!"></ErrorMessage>
             ) : null}
           </div>
-        </form>
-        <div className="flex justify-center pt-3">
-          &nbsp;or signup with&nbsp;
-        </div>
-        <div className=" text-4xl flex justify-center gap-5 pt-2">
-          <FaInstagramSquare /> <AiFillFacebook />
-          <AiFillTwitterSquare />
-        </div>
-
-        <div className="flex justify-center pt-3">
-          Not have an account? Signup
-        </div>
-        <button className="bg-black text-white rounded-3xl font-bold flex items-center justify-center py-2 mt-3">
-          <Link to="/signup">SIGNUP</Link>
-        </button>
-        <div className="flex justify-center pt-3">
-          forgot password&nbsp;
-          <Link to="/" className="text-blue-900 underline">
-            reset
+          <div className="flex justify-center">
+          <Link to="/signup">
+          <button type="submit" className="bg-[#fdbe20] text-black rounded-3xl font-bold py-2 mt-3 px-32">
+            LOGIN
+          </button>
           </Link>
+          </div>
+        </form>
+        {/* Form End */}
+        {/* Login card bottom */}
+        <div>
+          <div className="flex justify-center pt-3">
+            &nbsp;or signup with&nbsp;
+          </div>
+          <div className=" text-4xl flex justify-center gap-5 pt-2">
+            <FaInstagramSquare /> <AiFillFacebook />
+            <AiFillTwitterSquare />
+          </div>
+
+          <div className="flex justify-center pt-3">
+            Not have an account? Signup
+          </div>
+          <div className="flex justify-center">
+          <Link to="/signup">
+          <button className="bg-black text-white rounded-3xl font-bold py-2 mt-3 px-32">
+            SIGNUP
+          </button>
+          </Link>
+          </div>
+          <div className="flex justify-center pt-3">
+            forgot password&nbsp;
+            <Link to="/" className="text-blue-900 underline">
+              reset
+            </Link>
+          </div>
+          <div className="bg-black text-white text-sm flex justify-center rounded-full py-2 mt-4 font-medium">
+            <Link to="/">continue with out login</Link>
+          </div>
         </div>
-        <div className="bg-black text-white text-sm flex justify-center rounded-full py-1 mt-4 font-medium">
-          <Link to="/">continue with out login</Link></div>
       </div>
+      {/* Login card bottom */}
+      {/* Login card end */}
     </div>
   );
 }

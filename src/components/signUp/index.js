@@ -92,7 +92,7 @@ export default function Index() {
       if (password === undefined) {
         setErrPassword(true);
       }
-      setError("**Please Fill All The Mandatory Fields !");
+      setError("*Please Fill All The Mandatory Fields !");
     }
   };
   //events that set the fields for user entry and the error fields which are undifined
