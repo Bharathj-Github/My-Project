@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import ErrorMessage from "./errorMessage";
-import { BiLogoFirebase } from 'react-icons/bi';
 import { Link } from "react-router-dom";
+import girlimg from "../../img/girl.png";
+import Logo from "../Logo/index";
 
 export default function Index() {
   const space = "flex flex-col";
-  const input_tail ="font-light border-2 border-yellow-400 rounded-lg outline-none p-2";
-  const click_move_after="absolute translate-x-[0.74rem] -translate-y-[0.4rem] bg-white text-xs ease-in-out duration-200";
-  const click_move_before = "absolute translate-x-2 translate-y-2 pointer-events-none";
+  const input_css =
+    "font-light border-2 border-yellow-400 rounded-lg outline-none p-2 max-[718.5px]:text-base";
+  const click_move_after =
+    "absolute translate-x-[0.74rem] -translate-y-[0.4rem] bg-white text-xs ease-in-out duration-200 ";
+  const click_move_before =
+    "absolute translate-x-2 translate-y-2 pointer-events-none max-[718.5px]:text-base";
 
-  //used to block the char for number 
+  //used to block the char for number
   const blockInvalidChar = (e) =>
     ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
 
@@ -43,7 +47,7 @@ export default function Index() {
   const [click7, setClick7] = useState(false);
 
   //to handle submit form
-   const handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     //if all the fields are filled go in and check for password
     if (
@@ -88,7 +92,7 @@ export default function Index() {
       if (password === undefined) {
         setErrPassword(true);
       }
-      setError("** please enter all mandatory fields");
+      setError("**Please Fill All The Mandatory Fields !");
     }
   };
   //events that set the fields for user entry and the error fields which are undifined
@@ -134,7 +138,7 @@ export default function Index() {
   };
   let phoneNoHandler = (event) => {
     if (event.target.value.length > 10) {
-      event.target.value = event.target.value.slice(0,10)
+      event.target.value = event.target.value.slice(0, 10);
     }
     if (!firstName || !lastName || !userName || !emailId) {
       if (firstName === undefined) {
@@ -152,9 +156,8 @@ export default function Index() {
     }
     if (event.target.value.length === 10) {
       setPhoneNo(event.target.value);
-    }
-    else {
-      console.log("object")
+    } else {
+      console.log("object");
     }
     setErrPhone(false);
   };
@@ -212,24 +215,39 @@ export default function Index() {
   };
 
   return (
-    <div className="h-screen bg-[#fdbe20] flex justify-center max-[1000px]:block max-md:p-3 ">
-      <div><BiLogoFirebase className="text-9xl flex flex-col max-[400px]:text-7xl"/></div>
-      <div className="flex flex-row justify-end min-[768px]:max-[1200px]:flex-col">
-        <img src="img/signup.png" alt="girl" className="flex justify-center"/>
+    <div className="h-screen w-screen bg-[#fdbe20] flex justify-center max-sm:block">
+      <div className="lg:flex">
+      {/* Logo */}
+      <div>
+        <Logo logosize={"text-9xl max-sm:text-6xl"} textsize={"text-xl max-sm:text-sm"} />
       </div>
-      <div className=" bg-white flex justify-center px-20 py-10 my-3 rounded-3xl flex-col max-md:px-6">
-        <div className="flex justify-center font-extrabold text-2xl">
-          SIGNUP
+      {/* Logo */}
+      {/* Girl img */}
+      <div className="flex flex-row justify-end max-sm:w-72 max-sm:relative max-sm:translate-x-28 max-sm:-translate-y-20">
+        <img src={girlimg} alt="girl" />
+      </div>
+      {/* Girl img */}
+      </div>
+      {/* Signup card start */}
+      <div className=" bg-white px-20 rounded-3xl shadow-inner shadow-gray-400 my-4 pt-8 max-[718.5px]:px-14 max-sm:mx-4 max-sm:-translate-y-40 max-sm:pb-10">
+        {/* Top part start */}
+        <div>
+          <div className="flex justify-center font-extrabold text-2xl">
+            SIGNUP
+          </div>
+          <p className=" text-xs flex justify-center pb-1">
+            HELLO!! Please signup to continue
+          </p>
+          <div className="bg-black p-[0.1rem] rounded-full mb-3"></div>
         </div>
-        <p className=" text-xs flex justify-center pb-1">
-          HELLO!! Please signup to continue
-        </p>
-        <div className="bg-black p-[0.1rem] rounded-full mb-3"></div>
+        {/* Top part end */}
+        {/* Form part start */}
         <form
           onSubmit={handleSubmit}
-          className=" font-bold flex flex-col gap-3"
+          className=" font-bold flex flex-col gap-2"
         >
-          <div className="flex gap-3 max-[719px]:contents">
+          {/* First name and last name */}
+          <div className="flex gap-3 max-md:contents">
             <div className={space}>
               <div
                 className={click1 ? click_move_after : click_move_before}
@@ -244,7 +262,7 @@ export default function Index() {
                 name="firstName"
                 id="firstName"
                 onChange={firstNameHandler}
-                className={input_tail}
+                className={input_css}
                 onClick={() => {
                   setClick1(true);
                 }}
@@ -266,17 +284,18 @@ export default function Index() {
                 type="text"
                 name="lastName"
                 id="lastName"
-                className={input_tail}
+                className={input_css}
                 onChange={lastNameHandler}
                 onClick={() => {
                   setClick2(true);
                 }}
               />
               {errLast ? (
-              <ErrorMessage errorMessage="LastName must be provided!"></ErrorMessage>
-            ) : null}
+                <ErrorMessage errorMessage="LastName must be provided!"></ErrorMessage>
+              ) : null}
             </div>
           </div>
+          {/* First name and last name */}
           <div className={space}>
             <div
               className={click3 ? click_move_after : click_move_before}
@@ -290,7 +309,7 @@ export default function Index() {
               type="text"
               name="userName"
               id="userName"
-              className={input_tail}
+              className={input_css}
               onChange={userNameHandler}
               onClick={() => {
                 setClick3(true);
@@ -313,7 +332,7 @@ export default function Index() {
               type="email"
               name="emailId"
               id="emailId"
-              className={input_tail}
+              className={input_css}
               onChange={emailIdHandler}
               onClick={() => {
                 setClick4(true);
@@ -337,10 +356,11 @@ export default function Index() {
               onKeyDown={blockInvalidChar}
               name="phoneNo"
               id="phoneNo"
-              className={input_tail+" [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"}
+              className={
+                input_css +
+                " [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+              }
               onChange={phoneNoHandler}
-              maxLength={10}
-              max={10}
               onClick={() => {
                 setClick5(true);
               }}
@@ -362,7 +382,7 @@ export default function Index() {
               type="password"
               name="password"
               id="password"
-              className={input_tail}
+              className={input_css}
               onChange={passwordHandler}
               onClick={() => {
                 setClick6(true);
@@ -385,35 +405,40 @@ export default function Index() {
               type="password"
               name="cPassword"
               id="cPassword"
-              className={input_tail}
+              className={input_css}
               onChange={cpasswordHandler}
               onClick={() => {
                 setClick7(true);
               }}
-            />{
-              errCpassword? null:null
-            }
+            />
+            {errCpassword ? null : null}
           </div>
-          <div className="flex justify-center flex-col">
+          <div className="self-center">
             <button
               type="submit"
-              className="rounded-xl bg-[#fdbe20] shadow-2xl uppercase px-10 py-2 text-black my-5"
+              className="rounded-xl bg-[#fdbe20] shadow-2xl uppercase px-20 py-2 text-black my-2"
             >
               REGISTER
             </button>
-            <div className="text-red-400">{error}</div>
+            <div className="text-red-600 text-sm">{error}</div>
           </div>
         </form>
-        <div className="flex justify-center">
-          &nbsp;Already have an account? login &nbsp;
+        {/* Form part end */}
+        {/* bottom part start */}
+        <div>
+          <div className="flex justify-center max-md:text-xs pt-2">
+            &nbsp;Already have an account? login &nbsp;
+          </div>
+          <Link
+            to="/login"
+            className="flex bg-black rounded-3xl font-bold items-center justify-center mt-2 py-2"
+          >
+            <button className=" text-white">LOGIN</button>
+          </Link>
         </div>
-        
-        <button className="bg-black text-white rounded-3xl font-bold flex items-center justify-center py-2 mt-3"><Link to="/login">
-          LOGIN </Link>
-        </button>
-       
-        
+        {/* bottom part end */}
       </div>
+      {/* Signup card End */}
     </div>
   );
 }

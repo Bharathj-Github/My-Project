@@ -23,8 +23,8 @@ export default function index() {
         <div className='flex list-none gap-3 text-lg font-semibold items-center max-sm:text-[0.60rem] max-sm:gap-1 max-sm:pt-2'>
          <div className="flex bg-white rounded-full px-6 gap-3 py-2 shadow-inner shadow-gray-400 max-sm:py-0">
           <Link to="/" className="flex items-center gap-1 relative z-[1]"><RiHomeHeartFill className="text-[#fdbe20]"/>HOME</Link>
-          <Link to="/" className="flex items-center gap-1 relative z-[1]"><HiHeart className="text-[#fdbe20]"/>ABOUT</Link>
-          <Link to="/" className="flex items-center gap-1 relative z-[1]"><HiShoppingCart className="text-[#fdbe20]"/>CART</Link>
+          <Link to="/about" className="flex items-center gap-1 relative z-[1]"><HiHeart className="text-[#fdbe20]"/>ABOUT</Link>
+          <Link to="/cart" className="flex items-center gap-1 relative z-[1]"><HiShoppingCart className="text-[#fdbe20]"/>CART</Link>
           </div>
             <li>
               <Link to="/login"><div className=" bg-black text-white p-4 rounded-3xl max-sm:py-0">LOGIN</div></Link>
