@@ -60,11 +60,11 @@ export default function Index() {
       //if password is also correct post to server
       if (cpassword === password) {
         Axios.post("https://my-server-node.onrender.com/register", {
-          firstName: firstName,
-          lastName: lastName,
-          userName: userName,
-          emailId: emailId,
-          phoneNo: phoneNo,
+          firstname: firstName,
+          lastname: lastName,
+          username: userName,
+          emailid: emailId,
+          phoneno: phoneNo,
           password: password,
         })
           .then(() => console.log("done"))
