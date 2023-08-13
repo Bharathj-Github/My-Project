@@ -8,8 +8,8 @@ function App() {
     <div className="font-[poppins] w-screen h-screen">
       <Routes>
         <Route path="/" index element={ <Home/>} />
-        <Route path="/My-App-Github/login"  element={ <Login/>} />
-        <Route path="/My-App-Github/signup"  element={ <SignUp/>} />
+        <Route path="/login"  element={ <Login/>} />
+        <Route path="/signup"  element={ <SignUp/>} />
       </Routes>
     </div>
   );
