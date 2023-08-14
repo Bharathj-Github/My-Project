@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Axios from "axios";
 import Input from "./Input";
 import toast, { Toaster } from 'react-hot-toast';
@@ -6,6 +6,8 @@ import {AiFillCheckCircle} from "react-icons/ai";
 
 export default function Index(props) {
   const notify = () => toast.success('Sign up Successfilly.',{duration: 4000,icon: <AiFillCheckCircle className=" text-2xl text-green-700"/>});
+
+  let formRef = useRef();
   
   //used to block the char for number
   const blockInvalidChar = (e) =>
@@ -68,7 +70,15 @@ export default function Index(props) {
               })
                 .then(() => console.log("User Registered Successfully. "))
                 .catch((e) => console.log("ERROR IN POST: " + e));
-              notify()
+              notify();
+              formRef.current?.reset();
+              setClick1(false);
+              setClick2(false);
+              setClick3(false);
+              setClick4(false);
+              setClick5(false);
+              setClick6(false);
+              setClick7(false);
             } else{
               setError("User name has taken !");
               setErrUser(true)
@@ -230,7 +240,7 @@ export default function Index(props) {
   return (
     <div>
       <Toaster />
-      <form onSubmit={handleSubmit} className=" font-bold flex flex-col gap-2" >
+      <form onSubmit={handleSubmit} className=" font-bold flex flex-col gap-2" ref={formRef}>
         {/* First name and last name */}
         <div className="flex gap-3 max-md:contents">
           <Input
