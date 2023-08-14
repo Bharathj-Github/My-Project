@@ -6,10 +6,10 @@ import Toast from '../Toast';
 import Form from "./Form"
 
 export default function Index() {
+  const [show, setShow] = useState(false);
   setTimeout(() => {
     setShow(false)
   }, 5000);
-  const [show, setShow] = useState(false);
   return (
     <div className="h-screen w-screen bg-[#fdbe20] flex justify-center max-sm:block">
       {show ? <Toast message={'you have successfully registered.'} onCancel={(Boolean)=>{setShow(Boolean)}}></Toast>:null}
