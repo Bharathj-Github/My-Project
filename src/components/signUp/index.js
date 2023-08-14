@@ -1,18 +1,14 @@
-import React,{useState} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import girlimg from "../../img/girl.png";
 import Logo from "../Logo/index";
-import Toast from '../Toast';
 import Form from "./Form"
 
 export default function Index() {
-  const [show, setShow] = useState(false);
-  setTimeout(() => {
-    setShow(false)
-  }, 5000);
+
+
   return (
     <div className="h-screen w-screen bg-[#fdbe20] flex justify-center max-sm:block">
-      {show ? <Toast message={'you have successfully registered.'} onCancel={(Boolean)=>{setShow(Boolean)}}></Toast>:null}
       <div className="lg:flex">
         {/* Logo */}
         <div>
@@ -42,7 +38,7 @@ export default function Index() {
         </div>
         {/* Top part end */}
         {/* Form part start */}
-        <Form onSubmit={(Boolean)=>{setShow(Boolean)}}/>
+        <Form/>
         {/* Form part end */}
         {/* bottom part start */}
         <div>

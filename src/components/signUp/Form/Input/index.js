@@ -3,14 +3,14 @@ import ErrorMessage from "../../errorMessage";
 
 export default function index(props) {
     const input_css =
-      "font-light border-2 border-yellow-400 rounded-lg outline-none p-2 max-[718.5px]:text-base";
+      `font-light border-2 ${props.err ? 'border-red-800' :'border-yellow-400'} rounded-lg outline-none p-2 max-[718.5px]:text-base `;
     const click_move_after =
       "absolute translate-x-[0.74rem] -translate-y-[0.4rem] bg-white text-xs ease-in-out duration-200 ";
     const click_move_before =
       "absolute translate-x-2 translate-y-2 pointer-events-none max-[718.5px]:text-base";
   return (
     <div>
-      <div className='flex flex-col'>
+      <div className={`flex flex-col ${props.err ? 'animate-[error_0.1s_ease-in-out_2]' : null}`}>
               <div
                 className={props.click ? click_move_after : click_move_before}
                 onClick={() => {
