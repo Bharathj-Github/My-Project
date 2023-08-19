@@ -2,14 +2,15 @@ import React from "react";
 import { FaInstagramSquare } from "react-icons/fa";
 import { AiFillFacebook, AiFillTwitterSquare } from "react-icons/ai";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Logo from "../Logo";
 import girlimg from "../../img/girl.png";
 import Input from "./Input";
 import Axios from "axios";
 import bcrypt from 'bcryptjs'
 
-export default function Index() {
+export default function Index(props) {
+  const navigate = useNavigate()
   const [click1, setClick1] = useState(false);
   const [click2, setClick2] = useState(false);
 
@@ -55,7 +56,9 @@ export default function Index() {
         }else{
           if(bcrypt.compareSync(password,data.data.data[0].password)){
             setError(false);
-            console.log("DONE")
+            console.log("DONE");
+            props.setloginHandler(true)
+            navigate('/');
           }
           else{
             setError(true);
@@ -161,7 +164,7 @@ export default function Index() {
               reset
             </Link>
           </div>
-          <Link to="/">
+          <Link to="/home">
             <div className="bg-black text-white text-sm flex justify-center rounded-full py-2 mt-4 font-medium">
               continue with out login
             </div>

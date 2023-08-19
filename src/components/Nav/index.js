@@ -5,7 +5,7 @@ import { BsSearchHeartFill } from "react-icons/bs";
 import {RiHomeHeartFill} from "react-icons/ri";
 import {HiShoppingCart,HiHeart} from "react-icons/hi";
 
-export default function index() {
+export default function index(props) {
   return (
     <div>
       <div className="bg-[#fdbe20] flex items-center py-2 sm:gap-5 justify-evenly w-full max-sm:grid max-sm:place-items-center">
@@ -26,12 +26,14 @@ export default function index() {
           <Link to="/about" className="flex items-center gap-1 relative z-[1]"><HiHeart className="text-[#fdbe20]"/>ABOUT</Link>
           <Link to="/cart" className="flex items-center gap-1 relative z-[1]"><HiShoppingCart className="text-[#fdbe20]"/>CART</Link>
           </div>
+          {props.isLogin ? <div className=" bg-black text-white p-4 rounded-3xl max-sm:py-0">LOGOUT</div> :<div>
             <li>
               <Link to="/login"><div className=" bg-black text-white p-4 rounded-3xl max-sm:py-0">LOGIN</div></Link>
             </li>
             <li>
               <Link to="/signup"><div className=" bg-black text-white p-4 rounded-3xl max-sm:py-0">SIGNUP</div></Link>
             </li>
+          </div>}
         </div>
         </nav>
         </div>
