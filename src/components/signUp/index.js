@@ -25,7 +25,7 @@ export default function Index() {
         {/* Girl img */}
       </div>
       {/* Signup card start */}
-      <div className=" bg-white px-20 rounded-3xl shadow-inner shadow-gray-400 my-4 pt-8 max-[718.5px]:px-14 max-sm:mx-4 max-sm:-translate-y-40 max-sm:pb-10">
+      <div className=" bg-white px-20 rounded-3xl shadow-inner shadow-gray-500 my-4 pt-8 max-[718.5px]:px-14 max-sm:mx-4 max-sm:-translate-y-40 max-sm:pb-10">
         {/* Top part start */}
         <div>
           <div className="flex justify-center font-extrabold text-2xl">

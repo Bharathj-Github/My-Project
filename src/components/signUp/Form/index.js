@@ -347,7 +347,7 @@ export default function Index(props) {
         <div className="text-red-600 text-sm flex justify-center">{error}</div>
         <div className="self-center">
           <button
-            className="rounded-xl bg-[#fdbe20] shadow-2xl uppercase px-20 py-2 text-black my-2"
+            className="rounded-xl bg-[#fdbe20] shadow shadow-black uppercase px-20 py-2 text-black my-2"
             type="submit"
           >
             REGISTER

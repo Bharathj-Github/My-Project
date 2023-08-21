@@ -1,43 +1,56 @@
-import React from 'react';
-import { BiLogoFirebase } from "react-icons/bi";
+import React,{useState} from "react";
+import Logo from "../Logo";
 import { Link } from "react-router-dom";
-import { BsSearchHeartFill } from "react-icons/bs";
-import {RiHomeHeartFill} from "react-icons/ri";
-import {HiShoppingCart,HiHeart} from "react-icons/hi";
 
-export default function index(props) {
+export default function Index(props) {
+  const [animation,setanimation] = useState("-translate-x-3 px-9");
+
   return (
-    <div>
-      <div className="bg-[#fdbe20] flex items-center py-2 sm:gap-5 justify-evenly w-full max-sm:grid max-sm:place-items-center">
-        <BiLogoFirebase className=" text-7xl" />
-        <div className=" items-center gap-10 flex max-sm:block">
-            <div className='flex justify-center'>
-            <div>
-          <BsSearchHeartFill className="text-2xl absolute translate-x-3 translate-y-2 pointer-events-none text-gray-500 max-sm:text-sm" />
-          <input
-            type="text"
-            placeholder="Search.."
-            className="p-2 rounded-3xl px-12 outline-none shadow-inner shadow-gray-500 max-sm:px-10 max-sm:py-1 max-sm:text-xs"
-          /> </div></div>
-        <nav className="">
-        <div className='flex list-none gap-3 text-lg font-semibold items-center max-sm:text-[0.60rem] max-sm:gap-1 max-sm:pt-2'>
-         <div className="flex bg-white rounded-full px-6 gap-3 py-2 shadow-inner shadow-gray-400 max-sm:py-0">
-          <Link to="/" className="flex items-center gap-1 relative z-[1]"><RiHomeHeartFill className="text-[#fdbe20]"/>HOME</Link>
-          <Link to="/about" className="flex items-center gap-1 relative z-[1]"><HiHeart className="text-[#fdbe20]"/>ABOUT</Link>
-          <Link to="/cart" className="flex items-center gap-1 relative z-[1]"><HiShoppingCart className="text-[#fdbe20]"/>CART</Link>
+    <>
+    <div className="flex items-center justify-between px-24 bg-[#fdbe20] sticky top-0 z-[1] sm:max-lg:block sm:max-lg:px-10 max-sm:px-0 max-sm:justify-center">
+      {/* logo */}
+      <div className="sm:max-lg:flex sm:max-lg:justify-center">
+        <Logo
+          logosize={"text-6xl max-sm:text-9xl sm:max-lg:text-8xl max-sm:text-[3.5rem]"}
+          textsize={"text-lg max-sm:text-xl sm:max-lg:text-xl max-sm:text-base"}
+          />
+      </div>
+       {/* logo */}
+      <div className="font-bold">
+        <nav className="flex gap-6 sm:max-lg:block">
+          <div className="flex gap-10 items-center px-10 bg-gray-50 rounded-full sm:max-lg:py-4 sm:max-lg:justify-center sm:max-lg:mb-3 max-sm:hidden">
+            <div className={`bg-black py-[0.1rem] rounded-full absolute duration-[600ms] ease-in-out ${animation} translate-y-4 
+             drop-shadow-2xl sm:max-lg:hidden max-sm:hidden`}></div>
+
+
+          <Link to={'/'}>
+            <button className={"relative font-medium max-sm:hidden"} onClick={()=>{setanimation('-translate-x-1 px-7')}}>HOME</button>
+          </Link>
+          <Link to={'/about'}>
+            <button className={"relative font-medium max-sm:hidden"} onClick={()=>{setanimation('translate-x-20 px-12')}}>ABOUT US</button>
+          </Link>
+          <Link to={'/'}>
+            <button className={"relative font-medium max-sm:hidden"} onClick={()=>{setanimation('translate-x-[12.5rem] px-[3rem]')}}>CATEGORY</button>
+          </Link>
+          <Link to={'/'}>
+            <button className={"relative font-medium max-sm:hidden"} onClick={()=>{setanimation('translate-x-[20.5rem] px-[3.6rem]')}}>CONTACT US</button>
+          </Link>
+          <Link to={'/'}>
+            <button className={"relative font-medium max-sm:hidden"} onClick={()=>{setanimation('translate-x-[29.4rem] px-[1.7rem]')}}>CART</button>
+          </Link>
+
           </div>
-          {props.isLogin ? <div className=" bg-black text-white p-4 rounded-3xl max-sm:py-0">LOGOUT</div> :<div>
-            <li>
-              <Link to="/login"><div className=" bg-black text-white p-4 rounded-3xl max-sm:py-0">LOGIN</div></Link>
-            </li>
-            <li>
-              <Link to="/signup"><div className=" bg-black text-white p-4 rounded-3xl max-sm:py-0">SIGNUP</div></Link>
-            </li>
-          </div>}
-        </div>
+          <div className="flex gap-2 justify-center sm:max-lg:pb-5 max-sm:hidden">
+          <Link to={'/login'}>
+            <button className="bg-black px-4 py-2 text-white rounded-full shadow shadow-gray-200 border-[0.5rem] border-white max-sm:text-xs max-sm:border-[0.2rem]">LOGIN</button>
+          </Link>
+          <Link to={'/signup'}>
+            <button className="bg-black px-4 py-2 text-white rounded-full shadow shadow-gray-200 border-[0.5rem] border-white max-sm:border-[0.2rem] max-sm:text-xs">SIGN UP</button>
+          </Link>
+          </div>
         </nav>
-        </div>
       </div>
     </div>
-  )
+          </>
+  );
 }

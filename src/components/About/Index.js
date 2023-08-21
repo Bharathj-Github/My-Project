@@ -1,11 +1,11 @@
-import React from 'react';
-import Nav from '../Nav';
+import React from "react";
+import Nav from "../Nav";
+import happy from "../../img/happy.jpg";
 
-export default function Index() {
+export default function Index(props) {
   return (
-    <div>
-      <Nav></Nav>
-      About
+    <div className="">
+      about
     </div>
-  )
+  );
 }

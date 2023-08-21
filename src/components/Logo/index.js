@@ -9,7 +9,7 @@ export default function index(props) {
         <BiLogoFirebase className={` ${props.logosize}`}/>
         </div>
         <p className={`${props.textsize} text-black font-bold uppercase flex`}>
-          Retro<p className="text-white">&nbsp;Dapper</p>
+          Retro<p className=" text-white">&nbsp;Dapper</p>
         </p>
         </div>
     </div>
