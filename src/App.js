@@ -3,6 +3,10 @@ import Login from "./components/login";
 import Main from "./components/Main";
 import Home from "./components/Home";
 import About from "./components/About";
+import Categories from "./components/Category";
+import Cart from "./components/Cart";
+import More from "./components/More";
+import Account from "./components/Account";
 
 import { Routes, Route, Outlet } from "react-router-dom";
 
@@ -15,6 +19,11 @@ function App() {
         <Route element={<Main />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/more" element={<More />} />
+          <Route path="/account" element={<Account />} />
+          
         </Route>
       </Routes>
 
