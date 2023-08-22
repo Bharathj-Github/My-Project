@@ -40,7 +40,7 @@ export default function Index(props) {
           </Link>
 
           </div>
-          <div className="flex gap-2 justify-center sm:max-lg:pb-5 max-sm:hidden">
+          <div className="flex gap-2 justify-center sm:max-lg:pb-0 max-sm:hidden">
           <Link to={'/login'}>
             <button className="bg-black px-4 py-2 text-white rounded-full shadow shadow-gray-200 border-[0.5rem] border-white max-sm:text-xs max-sm:border-[0.2rem]">LOGIN</button>
           </Link>
